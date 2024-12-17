@@ -47,7 +47,7 @@ mod cargo;
 mod spawn;
 
 pub use crate::cargo::{get_cargo_bin, get_cargo_example};
-pub use crate::spawn::{Spawn, SpawnExt};
+pub use crate::spawn::{Info, Spawn, SpawnExt};
 
 #[allow(deprecated)]
 pub use crate::spawn::StdinCommand;

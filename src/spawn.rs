@@ -9,7 +9,7 @@ use std::process::{Command, Output, Stdio};
 
 use serde::Serialize;
 
-#[derive(Serialize)]
+#[derive(Clone, Serialize)]
 pub struct Info {
     program: String,
     args: Vec<String>,
@@ -30,7 +30,7 @@ fn describe_program(cmd: &OsStr) -> String {
 }
 
 impl Info {
-    fn from_std_command(cmd: &Command, stdin: Option<&[u8]>) -> Info {
+    pub fn from_std_command(cmd: &Command, stdin: Option<&[u8]>) -> Info {
         Info {
             program: describe_program(cmd.get_program()),
             args: cmd
